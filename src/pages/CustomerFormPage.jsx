@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { createCustomer, fetchCustomerById, updateCustomer } from "../api/customerApi.js";
+import { validateEmail } from "../utils/validation.js";
 import StatusMessage from "../components/StatusMessage.jsx";
 import LoadingIndicator from "../components/LoadingIndicator.jsx";
 
@@ -56,6 +57,11 @@ export default function CustomerFormPage() {
 
   async function handleSubmit(submitEvent) {
     submitEvent.preventDefault();
+    const emailError = validateEmail(customerForm.email);
+    if (emailError) {
+      setFeedback({ type: "error", text: emailError });
+      return;
+    }
     setIsSaving(true);
     setFeedback(null);
     try {

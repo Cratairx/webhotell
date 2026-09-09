@@ -134,7 +134,8 @@ label {
 }
 
 input,
-select {
+select,
+textarea {
   padding: 8px 10px;
   border: 1px solid var(--color-border);
   border-radius: 6px;
@@ -145,7 +146,8 @@ select {
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 1px;
 }
@@ -297,4 +299,80 @@ button:disabled {
 
 .loading-indicator {
   color: var(--color-muted);
+}
+
+/* Rows that open under a table row: the review form on Bookings, the review list on Rooms. */
+.expanded-row td {
+  background: #f8fafc;
+}
+
+.review-form {
+  align-items: flex-end;
+}
+
+.review-comment-field {
+  flex: 1 1 260px;
+}
+
+.review-comment-field textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.reviewed-tag {
+  align-self: center;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.review-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.review-average {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.review-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.review-item-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.review-rating {
+  color: #b45309;
+  letter-spacing: 0.05em;
+}
+
+.review-meta {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.review-comment {
+  margin: 6px 0 0;
+  white-space: pre-wrap;
 }

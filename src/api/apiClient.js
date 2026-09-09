@@ -2,6 +2,8 @@ const CUSTOMER_SERVICE_BASE_URL =
   import.meta.env.VITE_CUSTOMER_SERVICE_URL ?? "http://localhost:8080";
 const BOOKING_SERVICE_BASE_URL =
   import.meta.env.VITE_BOOKING_SERVICE_URL ?? "http://localhost:8081";
+const REVIEW_SERVICE_BASE_URL =
+  import.meta.env.VITE_REVIEW_SERVICE_URL ?? "http://localhost:8082";
 
 /** Error carrying the HTTP status, so pages can react to 409 differently than 500. */
 export class ApiError extends Error {
@@ -92,4 +94,8 @@ export function customerServiceRequest(path, options) {
 
 export function bookingServiceRequest(path, options) {
   return sendRequest(BOOKING_SERVICE_BASE_URL, path, options);
+}
+
+export function reviewServiceRequest(path, options) {
+  return sendRequest(REVIEW_SERVICE_BASE_URL, path, options);
 }
